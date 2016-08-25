@@ -6,6 +6,15 @@
 		<script src="../lib/jquery.js" type="text/javascript"></script>
 		<script>
 			$(function(){
+				$("#box").on("click", {x:10, y:20}, function(e) {
+					console.log(e.data.x);
+					console.log(e.data.y);
+					e.preventDefault();
+					e.stopPropagation();
+				});
+				$("*").add([document, window]).on("click", function(e) {
+					e.stopPropagation();
+				});
 			});
 		</script>
 		<style>
@@ -15,8 +24,8 @@
 	</head>
 	<body>
 	<div id="buttons">
-		<button id="hide">Hide</button>
-		<button id="show">Show</button>
+		<button id="toggle">Toggle</button>
+		<!-- <button id="show">Show</button> -->
 	<div>
 	<div id="box">
 		<h1>Привет всем!</h1>

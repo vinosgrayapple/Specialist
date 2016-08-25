@@ -12,11 +12,31 @@
 		- При нажатии левой кнопки мышки на элемент <p> скрытые элементы <span> должен показываться.
 			При повторном нажатии - прятаться.
 	*/
+  $(function() {
+    $("#news span.hidden").hide();
+    $("#news p").on("click", function() {
+      $(this).find("span.hidden").toggle();
+    });
+  
 	/** ЗАДАНИЕ 2
 		- В таблице с id="courses" при наведении курсора мышки на элемент <tr> должны:
 			- меняться цвет фона данной строки таблицы
 			- текст в колонке "Комплекс" выделяться полужирным
 	*/
+  $("#courses tbody tr").on("mouseenter",function() {
+    $(this).css("background","green");
+    $(this).children("td").eq(3).css({
+      font-weight:"bold",
+      font-size:"20px"
+    });
+  });
+  $("#courses tbody tr").on("mouseleave",function() {
+    $(this).css("background","");
+    $(this).children("td").eq(3).css({
+      "font-weight":"",
+      "font-size":""
+    });
+  });
 	/** ЗАДАНИЕ 3 (Дополнительно для тех, кто осилил предыдущие задания)
 		- Спрятать <div id="form">
 		- В элемент <h2>Ваш комментарий</h2> добавить атрибут "title" со значением 
@@ -36,6 +56,8 @@
 		- Разрешить ввод только символов [8, 9, 13, 16, 17, 32, 37, 39, 46, 65-122, 189]
 			При вводе недопустимого символа вывести alert('Недопустимый символ') и удалить этот символ
 	*/
+
+  });
 	</script>
 	<style>.emptyField{background-color:red}</style>
 </head>
