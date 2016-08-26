@@ -6,16 +6,19 @@
 		<script src="../lib/jquery.js" type="text/javascript"></script>
 		<script>
 			$(function(){
+				$.fx.speeds._default = 2000;
+				$.fx.speeds.verySlow = 3000;
+				$.fx.speeds.veryFast = 100;
 				$('#toggle').click(function() {
 					if ($('#box').is(':visible')) {
-						$('#box').hide();
+						$('#box').slideUp("verySlow");
 					} else {
-						$('#box').show();
+						$('#box').slideDown("veryFast");
 					}
 				});
-				/*$('#toggle').click(function() {
-					$('#box').toggle();
-				});*/
+				// $('#toggle').click(function() {
+				// 	$('#box').fadeToggle();
+				// });
 			});
 		</script>
 		<style>

@@ -10,9 +10,30 @@
 			- цвет фона элемента <div> меняется на желтый
 			- у третьего элемента списка цвет фона меняется на красный
 	*/
+	$(function() {
+		$("div#container").on("mouseenter", function() {			
+			$(this).css("background", "yellow").find("li").eq(2).css("background", "red");
+		});
+		
+		$("div#container").on("mouseleave", function() {			
+			$(this).css("background", "").find("li").eq(2).css("background", "");
+			$("ul").slideDown(1500);
+		});
+		//excercise 2
+		$("div#container").on("click", function() {
+			$("ul").slideUp(1500);
+
+		});
+
+
+
+
+
+	});
 	/** ЗАДАНИЕ 2
 		- Привяжите событие "click" к элементу <div>, при котором список <ul> ПЛАВНО скрывается 
 	*/
+
 	/** ЗАДАНИЕ 3
 		- Привяжите событие "mouseleave" к элементу <div>, при котором 
 			- список <ul> ПЛАВНО показывается

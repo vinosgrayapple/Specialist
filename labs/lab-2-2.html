@@ -14,6 +14,15 @@
 		- Результат должен быть следующим:
 			<span id="complex">Радио, Бауманский, Стилобат</span>
 	*/
+  $(function() {
+    var complx = [];
+    $("#courses tbody tr").each(function() {
+     var txt = $(this).children("td").eq(3).text();
+     if (complx.indexOf(txt) === -1) complx.push(txt);
+    });
+    var complxTxt = complx.join(", ");
+    $("span#complex").text(complxTxt);
+  });
 	</script>
 	
 </head>
